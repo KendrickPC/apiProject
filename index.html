@@ -19,11 +19,15 @@
   </head>
   <body>
 
-    <p>First name: <strong data-bind="text: firstName">todo</strong></p>
-    <p>Last name: <strong data-bind="text: lastName">todo</strong></p>
+        <!-- This is a *view* - HTML markup that defines the appearance of your UI -->
 
+        <p>First name: <input data-bind="value: firstName" /></p>
+        <p>Last name: <input data-bind="value: lastName" /></p>
 
+        <p>First name: <strong data-bind="text: firstName"></strong></p>
+        <p>Last name: <strong data-bind="text: lastName"></strong></p>
 
+        <p>Full name: <strong data-bind="text: fullName"></strong></p>
 
 
 
@@ -32,13 +36,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type='text/javascript' src='bower_components/knockout/dist/knockout.js'></script>
-
-
-
-
-
-
-
     <script src="js/main.js"></script>
   </body>
 </html>

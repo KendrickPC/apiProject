@@ -45,11 +45,9 @@ README.md
 9. Test that knockout.js is working by running through the tutorials. Check to see if data-bind works in the HTML file. 
 	http://learn.knockoutjs.com/ 
 
-<!-- stopped on INTRODUCTION step 4 of 5 on knockout.js tutorial -->
-
 10. 
 
-
+<!-- Stopped at Single Page Applications -->
 
 
 

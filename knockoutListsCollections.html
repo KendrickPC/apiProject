@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Single Page Applications</title>
+    <title>knockout.js Lists &amp; Collections</title>
 
     <!--begin Bootstrap -->
     <!-- <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"> -->
@@ -24,13 +24,35 @@
   </head>
   <body>
 
+<h2>Seat Reservations (<span data-bind="text: seats().length"></span>)</h2> 
+
+<table>
+    <thead><tr>
+        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+    </tr></thead>
+    <!-- Todo: Generate table body -->
+    <tbody data-bind="foreach: seats">
+    <tr>
+        <td><input data-bind="value: name" /></td>
+        <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+        <td data-bind="text: formattedPrice"></td>
+        <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+    </tr>    
+</tbody>
+</table>
+<button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
+<h3 data-bind="visible: totalSurcharge() > 0">
+    Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+</h3>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type='text/javascript' src='bower_components/knockout/dist/knockout.js'></script>
-    <script src="js/knockoutSinglePageApplications.js"></script>
+    <script src="js/knockoutListsCollections.js"></script>
   </body>
 </html>
 

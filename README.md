@@ -47,7 +47,7 @@ README.md
 
 10. 
 
-<!-- Stopped at Single Page Applications -->
+<!-- Stopped at Knockout Single Page Applications Tutorial -->
 
 
 

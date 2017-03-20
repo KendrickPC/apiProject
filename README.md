@@ -45,9 +45,12 @@ README.md
 9. Test that knockout.js is working by running through the tutorials. Check to see if data-bind works in the HTML file. 
 	http://learn.knockoutjs.com/ 
 
-10. 
+10. Loaded Google Simple Map from the following link: 
+https://developers.google.com/maps/documentation/javascript/examples/map-simple
 
-<!-- Stopped at Knockout Single Page Applications Tutorial -->
+11. Zhongxiao Xinsheng Station/Coordinates
+		25.0420° N, 121.5327° E
 
+12. 
 
 

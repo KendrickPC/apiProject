@@ -38,7 +38,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 105px;
 }
 
 #map {
@@ -122,7 +122,7 @@
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
+        width: 105px;
     }
 
     #page-content-wrapper {

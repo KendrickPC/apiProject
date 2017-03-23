@@ -1,38 +1,20 @@
-
-// Begin Initializing Google Maps Javascript API
-// var map;
-// function initMap() {
-// 	map = new google.maps.Map(document.getElementById('map'), {
-//   	center: {lat: 25.0420, lng: 121.5327},
-//   	zoom: 13
-//   });
-// }
-// End Initializing Google Maps Javascript API
-
-
 var map;
 
 // Create a new blank array for all the listing markers.
 var markers = [];
-
-// Menu Toggle Script
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});
 
 function initMap() {
     // Constructor creates a new map - only center and zoom are required.
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 25.0422, lng: 121.5083},
         zoom: 12,
-        mapTypeControl: true
+        mapTypeControl: false
     });
 
     // These are the real estate listings that will be shown to the user.
     // Normally we'd have these in a database instead.
     var locations = [
-        {title: 'Taipei Main MRT Station', location: {lat: 25.0464, lng: 121.5176}},
+        {title: 'Taipei Main Station MRT', location: {lat: 25.0464, lng: 121.5176}},
         {title: 'Nanjing Fuxing MRT Station', location: {lat: 25.0522, lng: 121.5440}},
         {title: 'Zhongxiao MRT Fuxing', location: {lat: 25.0410, lng: 121.5438}},
         {title: 'Dazhi MRT Station', location: {lat: 25.0795, lng: 121.5469}},

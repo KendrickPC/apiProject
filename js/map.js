@@ -8,7 +8,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 25.0422, lng: 121.5083},
         zoom: 12,
-        mapTypeControl: false
+        mapTypeControl: true
     });
 
     // These are the real estate listings that will be shown to the user.

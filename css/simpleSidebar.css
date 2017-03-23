@@ -41,13 +41,6 @@
     width: 105px;
 }
 
-#map {
-    bottom:0;
-    height: 78%;
-    left: 0;
-    position: absolute;
-    right: 0;
-}
 
 #page-content-wrapper {
     width: 100%;
@@ -74,6 +67,7 @@
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
+    width: 105px;
 }
 
 .sidebar-nav li a {

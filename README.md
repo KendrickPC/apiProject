@@ -54,3 +54,6 @@ https://developers.google.com/maps/documentation/javascript/examples/map-simple
 12. 
 
 
+TO DO LIST: 
+Restrict zone, data-bind links, make a working search bar, have a working Yelp API installed, Google Maps walking directions installed,  
+

@@ -19,7 +19,7 @@
 }
 
 #wrapper.toggled {
-    padding-left: 180px;
+    padding-left: 120px;
 }
 
 #sidebar-wrapper {
@@ -38,7 +38,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 105px;
+    width: 130px;
 }
 
 
@@ -67,7 +67,7 @@
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
-    width: 105px;
+    width: 130px;
 }
 
 .sidebar-nav li a {
@@ -116,7 +116,7 @@
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 105px;
+        width: 130px;
     }
 
     #page-content-wrapper {

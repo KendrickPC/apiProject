@@ -232,7 +232,7 @@ function initMap() {
         mapTypeControl: false
     });
 
-    // These are the real estate listings that will be shown to the user.
+    // These are the landmark listings that will be shown to the user.
     // Normally we'd have these in a database instead.
     var locations = [
         {title: 'Taipei Main Station MRT', location: {lat: 25.0464, lng: 121.5176}},
@@ -242,6 +242,8 @@ function initMap() {
         {title: 'Ximen MRT Station', location: {lat: 25.0422, lng: 121.5083}},
         {title: 'Taipei 101', location: {lat: 25.0340, lng: 121.5645}}
     ];
+
+    var zoomAutocomplete = new google.maps.places.Autocomplete(document.getElementById('search-bar-zoom'));
 
     var largeInfowindow = new google.maps.InfoWindow();
 
@@ -266,6 +268,9 @@ function initMap() {
     }
     document.getElementById('show-listings').addEventListener('click', showListings);
     document.getElementById('hide-listings').addEventListener('click', hideListings);
+    document.getElementById('zoom-to-area').addEventListener('click', function() {
+        zoomToArea();
+    });
 }
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -299,5 +304,35 @@ function showListings() {
 function hideListings() {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
+    }
+}
+
+
+// This function takes the input value in the find nearby area text input
+// locates it, and then zooms into that area. This is so that the user can
+// show all listings, then decide to focus on one area of the map.
+function zoomToArea() {
+    // Initialize the geocoder.
+    var geocoder = new google.maps.Geocoder();
+    // Get the address or place that the user entered.
+    var address = document.getElementById('search-bar-zoom').value;
+    // Make sure the address isn't blank.
+    if (address == '') {
+        window.alert('Please must enter an area or address in Taipei, Taiwan.');
+    } else {
+        // Geocode the address/area entered to get the center. Then, center the map
+        // on it and zoom in
+        geocoder.geocode(
+            { address: address,
+                componentRestrictions: {country: 'TW'}
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(14);
+                } else {
+                    window.alert('Google could not find your location - try entering a more' +
+                        ' specific place.');
+                }
+            });
     }
 }

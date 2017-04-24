@@ -1,7 +1,15 @@
+// the map variable is taken from Google Maps Javascript API
+// https://developers.google.com/maps/documentation/javascript/examples/map-simple
 var map;
-
-// Create a new blank array for all the listing markers.
-var markers = [];
+//mostRecentlyClickedMarker global scope variable used to select only the most recently clicked marker
+// located in the populateInfoWindow function
+var mostRecentlyClickedMarker;
+// the infowindow variable is taken from the following Google Maps documentation: 
+// https://developers.google.com/maps/documentation/javascript/infowindows
+var infowindow;
+// the populateInfoWindow code is taken from Project_Code_3_WindowShoppingPart1.html
+// from my Google Maps API Project
+var populateInfoWindow;
 
 function initMap() {
 

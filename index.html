@@ -30,7 +30,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Taipei
+                        Taipei Metro
                     </a>
                 </li>
                 <hr>
@@ -44,22 +44,12 @@
                         <a href="#">Hide List</a>
                     </div>
                 </li>
-                <hr>
+                <!-- <hr> -->
                 <li>
                     <input id="search-bar-zoom" type="text" class="form-control" placeholder="Search ...">
                 </li>
                 <li>
                     <input id="zoom-to-area" class="btn btn-secondary" type="button" value="Zoom">
-                </li>
-                <hr>
-                <li>
-                    <a href="#">Yelp</a>
-                </li>
-                <li>
-                    <a href="#">Foursquare</a>
-                </li>
-                <li>
-                    <a href="#">Booking.com</a>
                 </li>
                 <hr>
                 <li>
@@ -75,7 +65,7 @@
             <div class="container">   
                 <div class="row">
                     <div class="col-lg-9">               
-                        <h1>Taipei</h1>
+                        <h1>Taipei Metro Party</h1>
 <!--                         <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
@@ -87,6 +77,14 @@
     <!-- /#wrapper -->
       <!-- begin Google Maps load -->
       <div id="map" value="retro"></div>
+      <div class="error-div-wrapper">
+        <!--Observable for Google Maps Error Div -->
+        <!-- linked to simpleSidebar.css line 143 -->
+        <!-- data-bind linked to map.js lines 243 and 349 -->
+<!--       <div class="missing-map" data-bind="visible: mapUnavailable">
+                <p>We offer our condolences for Google Map's inability to function correctly at this time. Please try again later.</p>
+      </div>
+    </div> -->
       <!-- end Google Maps load -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bower_components/jquery/dist/jquerySimpleSidebar.js"></script>
@@ -99,7 +97,7 @@
 
         <!-- begin async Google Maps load -->
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyB56jZO1ju-qfea2i9V8sQNXb5jKQ0OGmQ&v=3&callback=initMap"
-    async defer></script>
+    async defer onerror="mapError()"></script>
     <!-- end async Google Maps load -->
   </body>
 </html>

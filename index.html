@@ -26,7 +26,6 @@
 
 <main>
     <div id="wrapper">
-
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -36,42 +35,17 @@
                     </a>
                 </li>
                 <hr>
-
-                <!-- <hr> -->
                 <li>
-                    <input id="search-bar-zoom" type="text" class="form-control" placeholder="Search ...">
+                    <input id="search-bar-zoom" type="text" class="form-control" placeholder="Search..." data-bind="value: searchBox, valueUpdate: 'keyup'">
                 </li>
                 <hr>
-                <li>
-                    <div id="menu-toggled">
-                        <a href="#">Close Menu</a>
-                    </div>
-                </li>
-                <li>
-                    <div id="show-listings">
-                        <a href="#">Ximen MRT</a>
-                    </div>
-                </li>
-                <li>
-                    <div id="hide-listings">
-                        <a href="#">Taipei Main</a>
-                    </div>
-                </li>
-                <li>
-                    <div id="hide-listings">
-                        <a href="#">Nanjing Fuxing</a>
-                    </div>
-                </li>
-                <li>
-                    <div id="hide-listings">
-                        <a href="#">Taipei 101</a>
-                    </div>
-                </li>
-                <li>
-                    <div id="hide-listings">
-                        <a href="#">Zhongxiao Fuxing</a>
-                    </div>
-                </li>
+                <ul id="menu-toggled">
+                    <a href="#">Close Menu</a>
+                </ul>
+                <!-- div class list to filter against the results list -->
+                <div class="resultsList" data-bind="foreach: search">
+                    <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
+                </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -81,8 +55,6 @@
                 <div class="row">
                     <div class="col-lg-9">               
                         <h1>Taipei Metro</h1>
-<!--                         <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p> -->
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>

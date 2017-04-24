@@ -1,10 +1,9 @@
 /*custom style sheet for apiProject*/
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-
 #map {
     bottom:0;
-    height: 78%;
+    height: 80%;
     left: 0;
     position: absolute;
     right: 0;
@@ -22,3 +21,12 @@ h1 {
 .row {
 	margin-left: 5px;
 }
+
+#menu-toggled {
+	margin-left: -15px;
+}
+
+.gm-style .gm-style-iw {
+    font-weight: 300;
+    font-size: 10px;
+ }

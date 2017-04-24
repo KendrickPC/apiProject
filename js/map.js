@@ -20,111 +20,347 @@ var mostRecentlyClickedMarker;
     // Google Maps custom styles array retro found at the following link: 
     // https://snazzymaps.com/style/18/retro
     var styles = [
-        {
-            "featureType": "administrative",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "stylers": [
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "stylers": [
-                {
-                    "color": "#84afa3"
-                },
-                {
-                    "lightness": 52
-                }
-            ]
-        },
-        {
-            "stylers": [
-                {
-                    "saturation": -17
-                },
-                {
-                    "gamma": 0.36
-                }
-            ]
-        },
-        {
-            "featureType": "transit.line",
-            "elementType": "geometry",
-            "stylers": [
-                {
-                    "color": "#3f518c"
-                }
-            ]
-        }
-    ];
+    {
+        "featureType": "all",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "hue": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "hue": "#ff0000"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f9ddc5"
+            },
+            {
+                "lightness": -7
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "color": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#645c20"
+            },
+            {
+                "lightness": 38
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#9e5916"
+            },
+            {
+                "lightness": 46
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#813033"
+            },
+            {
+                "lightness": 38
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#645c20"
+            },
+            {
+                "lightness": 39
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#a95521"
+            },
+            {
+                "lightness": 35
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#9e5916"
+            },
+            {
+                "lightness": 32
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": 43
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#cc7578"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "color": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#cc7578"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#f19f53"
+            },
+            {
+                "weight": 1.3
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#f19f53"
+            },
+            {
+                "lightness": -10
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": 38
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#813033"
+            },
+            {
+                "lightness": 22
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#1994bf"
+            },
+            {
+                "saturation": -69
+            },
+            {
+                "gamma": 0.99
+            },
+            {
+                "lightness": 43
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+];
+
         // initMap function testing
         console.log(initMap);
 
@@ -132,7 +368,7 @@ var mostRecentlyClickedMarker;
     // Only center and zoom are required
     var mapConstructor = {
         center: new google.maps.LatLng(25.0422, 121.5083),
-        zoom: 12,
+        zoom: 13,
         styles: styles,
         mapTypeControl: false
     };
@@ -151,7 +387,6 @@ var mostRecentlyClickedMarker;
     }
     // mapConstructor testing
     console.log(mapConstructor);
-    
     // For Loop through the viewModel.locations: [...] array located in my app.js file
     // Run a test with console.log(self);
     for (var i = 0; i < viewModel.locations.length; i++) {
@@ -174,16 +409,15 @@ var mostRecentlyClickedMarker;
     // marker icon test
         console.log(self);
         console.log(makeMarkerIcon);
-
         // The defaultIcon variable is taken from Udacity's google-maps-api course
         // https://www.udacity.com/course/google-maps-apis--ud864
         // Style the markers a bit. This will be our listing marker icon.
-        var defaultIcon = makeMarkerIcon('395634');
+        var defaultIcon = makeMarkerIcon('FF0000');
         // The highlightedIcon variable is taken from Udacity's google-maps-api course
         // https://www.udacity.com/course/google-maps-apis--ud864
         // Create a "highlighted location" marker color for when the user
         // mouses over the marker.
-        var highlightedIcon = makeMarkerIcon('dd5f63');
+        var highlightedIcon = makeMarkerIcon('FFFF00');
         // Knockout JS creating a marker per location, and placed into markerInformation array
         viewModel.locations[i].marker = new google.maps.Marker({
             position: new google.maps.LatLng(self.lng, self.lat),
@@ -202,10 +436,6 @@ var mostRecentlyClickedMarker;
         viewModel.locations[i].marker.addListener('mouseout', function () {
             this.setIcon(defaultIcon);
         });
-        // testing of defaultIcon and highlightedIcon not loaded yet until populateInfoWindow function completed
-        // console.log(defaultIcon);
-        // console.log(highlightedIcon);
-
     // Populates an infowindow for a marker when clicked
     // This function populates the infowindow when the marker is clicked. We'll only allow
     // one infowindow which will open at the marker that is clicked, and populate based
@@ -239,28 +469,21 @@ var mostRecentlyClickedMarker;
         infowindow.open(map, marker);
 // infowindow test
 console.log(infowindow);
-
                 // URL of Wikipedia Articles for Content Reference
                 // http://stackoverflow.com/questions/8555320/is-there-a-clean-wikipedia-api-just-for-retrieve-content-summary
                 // Query: Getting Stack Overflow's intro in plain text:
                 // https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Stack%20Overflow
-                
                 var wikipediaSource = 'https://en.wikipedia.org/wiki/' + marker.wikipediaID;
-
                 // Clean wikipedia api content summary retrieve URL
                 // http://stackoverflow.com/questions/8555320/is-there-a-clean-wikipedia-api-just-for-retrieve-content-summary
                 var wikipediaURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + marker.wikipediaID;
-
 // Wikipedia API test
 console.log(wikipediaSource);
 console.log(wikipediaURL);
-
 // Marker test
 console.log(marker);
-
 // Wikipedia API instructions to show data
 // http://carolflyjs.github.io/how-to-guide/display-data.html
-
                 $.ajax({
                     method: 'GET',
                     url: wikipediaURL,
@@ -286,18 +509,8 @@ console.log(marker);
                 console.log(this);
             });
         }
-
     }
-
     // Fallback error handling method for Google Maps
     mapError = function () {
         viewModel.mapUnavailable(true);
     };
-
-
-
-
-
-
-
-

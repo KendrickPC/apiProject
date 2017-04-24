@@ -218,8 +218,6 @@ var mostRecentlyClickedMarker;
             mostRecentlyClickedMarker.setIcon(defaultIcon);
         }
         mostRecentlyClickedMarker = marker;
-        // Test logs for markerInformation
-// console.log(marker;
         // Highlights the marker when clicked. 
         // marker.setIcon code found from the following Google Documentation:
         // https://developers.google.com/maps/documentation/javascript/markers
@@ -242,10 +240,64 @@ var mostRecentlyClickedMarker;
 // infowindow test
 console.log(infowindow);
 
+                // URL of Wikipedia Articles for Content Reference
+                // http://stackoverflow.com/questions/8555320/is-there-a-clean-wikipedia-api-just-for-retrieve-content-summary
+                // Query: Getting Stack Overflow's intro in plain text:
+                // https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Stack%20Overflow
+                
+                var wikipediaSource = 'https://en.wikipedia.org/wiki/' + marker.wikipediaID;
+
+                // Clean wikipedia api content summary retrieve URL
+                // http://stackoverflow.com/questions/8555320/is-there-a-clean-wikipedia-api-just-for-retrieve-content-summary
+                var wikipediaURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + marker.wikipediaID;
+
+// Wikipedia API test
+console.log(wikipediaSource);
+console.log(wikipediaURL);
+
+// Marker test
+console.log(marker);
+
+// Wikipedia API instructions to show data
+// http://carolflyjs.github.io/how-to-guide/display-data.html
+
+                $.ajax({
+                    method: 'GET',
+                    url: wikipediaURL,
+                    dataType: 'jsonp',
+                }).done(function(response) {
+
+                    var extract = response.query.pages[Object.keys(response.query.pages)[0]].extract;
+                    // change
+                    infowindow.setContent('<div>' + '<h3 class="marker-title">' + marker.title + '</h3>' + extract + '<br>(Source: ' + '<a href=' + wikipediaSource + '>Wikipedia)</a>' +'</div>');
+
+                //Set Content if failure of AJAX request
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    // change
+                    infowindow.setContent('<div>' + 'No Service/ Connection Detected (Please try again later)' + '</div>');
+                });
+            };
+
+            // Event listener to  populateInfoWindow when clicked.
+            this.addListener = google.maps.event.addListener(self.marker,'click', function() {
+                populateInfoWindow(this);
+                // eventListener test
+                console.log(this);
+            });
+        }
+
+    }
 
     // Fallback error handling method for Google Maps
     mapError = function () {
         viewModel.mapUnavailable(true);
     };
+
+
+
+
+
+
 
 

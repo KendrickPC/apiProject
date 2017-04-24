@@ -37,6 +37,25 @@ var viewModel = {
         this.visibleMenu(!this.visibleMenu());
     };
 
+// Search function for filtering through the list of locations based on the name of the location.
+// Show or hide the associated markers on the map when searched.
+    viewModel.search = ko.computed(function() {
+        var self = this;
+        var searchResult = this.searchBox().toLowerCase();
+        var searchCompare = ko.utils.compareArrays(self.locations, self.search);
+
+        return ko.utils.arrayFilter(self.locations, function(markerLocation) {
+            var title = markerLocation.title.toLowerCase();
+            var matched = title.indexOf(searchResult) >= 0;
+            var marker = markerLocation.marker;
+            if (marker) {
+                marker.setVisible(matched);
+            }
+            return matched;
+        });
+    }, viewModel);
+
+
 // Menu Toggle Script
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
@@ -51,12 +70,3 @@ $("#menu-toggled").click(function(e) {
 
 
 ko.applyBindings(viewModel);
-
-
-
-
-
-
-
-
-

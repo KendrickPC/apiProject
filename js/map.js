@@ -128,13 +128,31 @@ var mostRecentlyClickedMarker;
         // initMap function testing
         console.log(initMap);
 
-    // Constructor creates a new map - only center and zoom are required.
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 25.0422, lng: 121.5083},
+    // Variable mapConfiguration creates a new map with the center location at Taipei Main Station
+    // Only center and zoom are required
+    var mapConstructor = {
+        center: new google.maps.LatLng(25.0422, 121.5083),
         zoom: 12,
         styles: styles,
         mapTypeControl: false
-    });
+    };
+    // calling the global scope map variable
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+    map = new google.maps.Map(document.getElementById('map'), mapConstructor);
+    // calling the global scope infowindow variable
+    infowindow = new google.maps.InfoWindow();
+    }
+    else {
+    // Knockout JS visible binding documentation linked below: 
+    // http://knockoutjs.com/documentation/visible-binding.html
+    // viewModel.mapUnavailable linked to index.html <div class="missing-map" data-bind="visible: mapUnavailable">
+    // https://developers.google.com/maps/documentation/javascript/infowindows
+    viewModel.mapUnavailable(true);
+    }
+    // mapConstructor testing
+    console.log(mapConstructor);
+    
+
 
     var zoomAutocomplete = new google.maps.places.Autocomplete(document.getElementById('search-bar-zoom'));
     //Bias the boundaries within the map for the zoom to area text.

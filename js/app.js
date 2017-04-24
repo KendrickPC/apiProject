@@ -1,4 +1,5 @@
 // Main Class that serves as Blueprint for each Location Marker
+// Will show the desired information of each popup window for each markerInformation 
 var markerInformation = function (title, lng, lat, wikipediaID, pageID, marker) {
 	var self = this;
 	this.title = title;
@@ -8,7 +9,9 @@ var markerInformation = function (title, lng, lat, wikipediaID, pageID, marker) 
 	this.pageID = pageID;
 	this.marker = marker;
 };
+
 // viewModel for locations in knockout.js
+// locations array added of Taipei subway stations
 var viewModel = {
     locations: [
         new markerInformation('Taipei Main Station', 25.0464, 121.5176, 'Taipei_Railway_Station', 959045),
@@ -18,6 +21,7 @@ var viewModel = {
         new markerInformation('Taipei 101', 25.0340, 121.5645, 'Taipei_101', 203801),
     ]
 }
+
 
 // Model View Controller knockout.js
 
@@ -40,3 +44,6 @@ $("#menu-toggled").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
 });
+
+
+ko.applyBindings(viewModel);

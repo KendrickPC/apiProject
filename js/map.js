@@ -243,9 +243,9 @@ var mostRecentlyClickedMarker;
 console.log(infowindow);
 
 
-    // // Fallback error handling method for Google Maps
-    // mapError = function () {
-    //     viewModel.mapUnavailable(true);
-    // };
+    // Fallback error handling method for Google Maps
+    mapError = function () {
+        viewModel.mapUnavailable(true);
+    };
 
 

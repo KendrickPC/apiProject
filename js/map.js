@@ -136,17 +136,6 @@ var mostRecentlyClickedMarker;
         mapTypeControl: false
     });
 
-    // These are the landmark listings that will be shown to the user.
-    // Normally we'd have these in a database instead.
-    var locations = [
-        {title: 'Taipei Main Station MRT', location: {lat: 25.0464, lng: 121.5176}},
-        {title: 'Nanjing Fuxing MRT Station', location: {lat: 25.0522, lng: 121.5440}},
-        {title: 'Zhongxiao MRT Fuxing', location: {lat: 25.0410, lng: 121.5438}},
-        {title: 'Dazhi MRT Station', location: {lat: 25.0795, lng: 121.5469}},
-        {title: 'Ximen MRT Station', location: {lat: 25.0422, lng: 121.5083}},
-        {title: 'Taipei 101', location: {lat: 25.0340, lng: 121.5645}}
-    ];
-
     var zoomAutocomplete = new google.maps.places.Autocomplete(document.getElementById('search-bar-zoom'));
     //Bias the boundaries within the map for the zoom to area text.
     zoomAutocomplete.bindTo('bounds', map);

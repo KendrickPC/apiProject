@@ -368,7 +368,7 @@ var mostRecentlyClickedMarker;
     // Only center and zoom are required
     var mapConstructor = {
         center: new google.maps.LatLng(25.0422, 121.5083),
-        zoom: 13,
+        zoom: 12,
         styles: styles,
         mapTypeControl: false
     };

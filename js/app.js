@@ -18,7 +18,7 @@ var viewModel = {
         new markerInformation('Nanjing Fuxing MRT Station', 25.0522, 121.5440, 'Nanjing_Fuxing_Station', 18443746),
         new markerInformation('Zhongxiao Fuxing MRT Station', 25.0410, 121.5438, 'Zhongxiao_Fuxing_Station', 14254937),
         new markerInformation('Ximen MRT Station ', 25.0422, 121.5083, 'Ximen_Station', 14254222),
-        new markerInformation('Taipei 101', 25.0340, 121.5645, 'Taipei_101', 203801),
+        new markerInformation('Taipei 101', 25.0331, 121.5632, 'Taipei_101_/_World_Trade_Center_Station', 14254732),
     ],
     //ko observable for Menu with Navigation Bar Toggle Button
     visibleMenu: ko.observable(false),

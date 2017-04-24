@@ -23,6 +23,8 @@
     <![endif]-->
   </head>
   <body>
+
+<main>
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -86,8 +88,11 @@
       </div>
     </div> -->
       <!-- end Google Maps load -->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="bower_components/jquery/dist/jquerySimpleSidebar.js"></script>
+</main>
+
+
+   <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type='text/javascript' src='bower_components/knockout/dist/knockout.js'></script> 
@@ -96,8 +101,10 @@
     <script src="js/map.js"></script> 
 
         <!-- begin async Google Maps load -->
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyB56jZO1ju-qfea2i9V8sQNXb5jKQ0OGmQ&v=3&callback=initMap"
-    async defer onerror="mapError()"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyB56jZO1ju-qfea2i9V8sQNXb5jKQ0OGmQ&v=3&callback=initMap"
+            async defer onerror="mapError()">
+    </script>
     <!-- end async Google Maps load -->
   </body>
 </html>

@@ -159,8 +159,8 @@ var mostRecentlyClickedMarker;
     // Marker and functions drawn from Sample Code on Google Maps API Course on Udacity
     // https://www.udacity.com/course/google-maps-apis--ud864
         // This function takes in a COLOR, and then creates a new marker
-        // icon of that color. The icon will be 21 px wide by 34 high, have an origin
-        // of 0, 0 and be anchored at 10, 34).
+        // icon of that color. The icon will be 20 px wide by 30 high, have an origin
+        // of 0, 0 and be anchored at 20, 30).
     function makeMarkerIcon(markerColor) {
         var markerImage = new google.maps.MarkerImage(
             'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -206,60 +206,46 @@ var mostRecentlyClickedMarker;
         // console.log(defaultIcon);
         // console.log(highlightedIcon);
 
+    // Populates an infowindow for a marker when clicked
+    // This function populates the infowindow when the marker is clicked. We'll only allow
+    // one infowindow which will open at the marker that is clicked, and populate based
+    // on that markers position.
+    populateInfoWindow = function (marker) {
+        //mostRecentlyClickedMarker Variable used to select only the most recently clicked marker
+        // Javascript undefined and null
+        // http://stackoverflow.com/questions/2647867/how-to-determine-if-variable-is-undefined-or-null
+        if (mostRecentlyClickedMarker != null || mostRecentlyClickedMarker != undefined) {
+            mostRecentlyClickedMarker.setIcon(defaultIcon);
+        }
+        mostRecentlyClickedMarker = marker;
+        // Test logs for markerInformation
+// console.log(marker;
+        // Highlights the marker when clicked. 
+        // marker.setIcon code found from the following Google Documentation:
+        // https://developers.google.com/maps/documentation/javascript/markers
+        marker.setIcon(highlightedIcon);
+        // Google Maps panTo code found from the following stackoverflow resource:
+        // http://stackoverflow.com/questions/6191714/google-maps-panto-onclick
+        map.panTo(marker.getPosition());
 
-
-    var zoomAutocomplete = new google.maps.places.Autocomplete(document.getElementById('search-bar-zoom'));
-    //Bias the boundaries within the map for the zoom to area text.
-    zoomAutocomplete.bindTo('bounds', map);
-
-    var largeInfowindow = new google.maps.InfoWindow();
-
-
-
-    // The following group uses the location array to create an array of markers on initialize.
-    for (var i = 0; i < locations.length; i++) {
-        // Get the position from the location array.
-        var position = locations[i].location;
-        var title = locations[i].title;
-        // Create a marker per location, and put into markers array.
-        var marker = new google.maps.Marker({
-            position: position,
-            title: title,
-            animation: google.maps.Animation.DROP,
-            icon: highlightedIcon,
-            id: i
-        });
-        // Push the marker to our array of markers.
-        markers.push(marker);
-        // Create an onclick event to open an infowindow at each marker.
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
-        });
-        // Two event listeners - one for mouseover, one for mouseout,
-        // to change the colors back and forth.
-        marker.addListener('mouseover', function() {
-            this.setIcon(highlightedIcon);
-        });
-        marker.addListener('mouseout', function() {
-            this.setIcon(defaultIcon);
-        });
-    }
-
-
-// This function populates the infowindow when the marker is clicked. We'll only allow
-// one infowindow which will open at the marker that is clicked, and populate based
-// on that markers position.
-function populateInfoWindow(marker, infowindow) {
-    // Check to make sure the infowindow is not already opened on this marker.
-    if (infowindow.marker != marker) {
-        infowindow.marker = marker;
-        infowindow.setContent('<div>' + marker.title + '</div>');
+        // Animates (bounce effect) set to stop after 750ms
+        // code for the marker animation is found at the following stackoverflow link:
+        // http://stackoverflow.com/questions/7339200/bounce-a-pin-in-google-maps-once
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+            marker.setAnimation(null);
+        }, 750);
+        // infowindow.setContent code found from the following stackoverflow resource:
+        // http://stackoverflow.com/questions/7402667/google-maps-multiple-markers-1-infowindow-problem
+        infowindow.setContent(marker.title);
         infowindow.open(map, marker);
-        // Make sure the marker property is cleared if the infowindow is closed.
-        infowindow.addListener('closeclick', function() {
-            infowindow.marker = null;
-        });
-    }
-}
+// infowindow test
+console.log(infowindow);
+
+
+    // // Fallback error handling method for Google Maps
+    // mapError = function () {
+    //     viewModel.mapUnavailable(true);
+    // };
 
 

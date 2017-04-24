@@ -31,8 +31,11 @@ var viewModel = {
     //ko observable determining if error div should be shown
     mapUnavailable: ko.observable(false)
 };
-
-
+//Toggle Button / Side Menu Function when Clicked
+    viewModel.clickMe = function() {
+        var self = this;
+        this.visibleMenu(!this.visibleMenu());
+    };
 
 // Menu Toggle Script
 $("#menu-toggle").click(function(e) {
@@ -48,3 +51,12 @@ $("#menu-toggled").click(function(e) {
 
 
 ko.applyBindings(viewModel);
+
+
+
+
+
+
+
+
+

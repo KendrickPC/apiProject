@@ -19,19 +19,20 @@ var viewModel = {
         new markerInformation('Zhongxiao Fuxing MRT Station', 25.0410, 121.5438, 'Zhongxiao_Fuxing_Station', 14254937),
         new markerInformation('Ximen MRT Station ', 25.0422, 121.5083, 'Ximen_Station', 14254222),
         new markerInformation('Taipei 101', 25.0340, 121.5645, 'Taipei_101', 203801),
-    ]
-}
+    ],
+    //ko observable for Menu with Navigation Bar Toggle Button
+    visibleMenu: ko.observable(false),
+    //ko observable used for running a search against locations array
+    searchBox: ko.observable(''),
+    //ko observable used for populateInfoWindow when list items are triggered/clicked
+    clickEventHandlerFunction: function() {
+        populateInfoWindow(this.marker);
+    },
+    //ko observable determining if error div should be shown
+    mapUnavailable: ko.observable(false)
+};
 
 
-// Model View Controller knockout.js
-
-var ViewModel = function () {
-    this.title = ko.observable('Taipei Main Station MRT');
-    this.lat = ko.observable(25.0464);
-    this.lng = ko.observable(121.5176);
-
-}
-ko.applyBindings(new ViewModel());
 
 // Menu Toggle Script
 $("#menu-toggle").click(function(e) {

@@ -244,12 +244,7 @@ var mostRecentlyClickedMarker;
             this.setIcon(defaultIcon);
         });
     }
-    document.getElementById('show-listings').addEventListener('click', showListings);
-    document.getElementById('hide-listings').addEventListener('click', hideListings);
-    document.getElementById('zoom-to-area').addEventListener('click', function() {
-        zoomToArea();
-    });
-}
+
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based

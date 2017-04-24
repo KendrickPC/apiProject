@@ -1,3 +1,15 @@
+// Main Class that serves as Blueprint for each Location Marker
+var markerInformation = function (title, lng, lat, wikipediaID, pageID, marker) {
+	var self = this;
+	this.title = title;
+	this.lng = lng;
+	this.lat = lat;
+	this.wikipediaID = wikipediaID;
+	this.pageID = pageID;
+	this.marker = marker;
+};
+
+
 // Model View Controller knockout.js
 
 var ViewModel = function () {

@@ -55,5 +55,10 @@ https://developers.google.com/maps/documentation/javascript/examples/map-simple
 
 
 TO DO LIST: 
-Restrict zone, data-bind links, make a working search bar, have a working Yelp API installed, Google Maps walking directions installed,  
+Restrict zone, data-bind links, make a working search bar, have a working Yelp API installed, Google Maps walking directions installed, 
+
+TO DO LIST: Change YELP API FUSION v3 to Wikipedia API instead. 
+
+
+
 

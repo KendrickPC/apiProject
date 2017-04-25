@@ -30,3 +30,8 @@ h1 {
     font-weight: 300;
     font-size: 10px;
  }
+
+.resultsList {
+    color: white;
+    padding-left: 10px;
+}

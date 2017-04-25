@@ -28,25 +28,23 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
+            <div class="sidebar-nav">
+                <div class="sidebar-brand">
                     <a href="#">
                         Taipei Metro
                     </a>
-                </li>
-                <hr>
-                <li>
+                </div>
+                
                     <input id="search-bar-zoom" type="text" class="form-control" placeholder="Search..." data-bind="value: searchBox, valueUpdate: 'keyup'">
-                </li>
-                <hr>
+                
                 <ul id="menu-toggled">
-                    <a href="#">Close Menu</a>
+                    <li class="closeMenu">Close Menu</li>
                 </ul>
                 <!-- div class list filters against the results list -->
                 <div class="resultsList" data-bind="foreach: search">
-                    <li class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></li>
+                    <div class="location-item" data-bind="text: title, click: $root.clickEventHandlerFunction"></div>
                 </div>
-            </ul>
+            </div>
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
@@ -62,8 +60,9 @@
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
+</div>
       <!-- begin Google Maps load -->
-      <div id="map" value="retro"></div>
+      <div id="map"></div>
       <div class="error-div-wrapper">
         <!--Observable for Google Maps Error Div -->
         <!-- linked to simpleSidebar.css line 143 -->
@@ -86,9 +85,7 @@
     <script src="js/map.js"></script> 
 
         <!-- begin async Google Maps load -->
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyB56jZO1ju-qfea2i9V8sQNXb5jKQ0OGmQ&v=3&callback=initMap"
-            async defer onerror="mapError()">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyB56jZO1ju-qfea2i9V8sQNXb5jKQ0OGmQ&v=3&callback=initMap" onerror="mapError()">
     </script>
     <!-- end async Google Maps load -->
   </body>

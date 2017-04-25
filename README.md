@@ -12,4 +12,8 @@ Thank you for checking out my Taipei Maps.
 
 
 
+<!-- Made HTML Changes to errors from the following site: -->
+	https://validator.w3.org/nu/#textarea
+
+
 

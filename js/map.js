@@ -361,9 +361,6 @@ var mostRecentlyClickedMarker;
     }
 ];
 
-        // initMap function testing
-        console.log(initMap);
-
     // Variable mapConfiguration creates a new map with the center location at Taipei Main Station
     // Only center and zoom are required
     var mapConstructor = {
@@ -385,8 +382,6 @@ var mostRecentlyClickedMarker;
     // https://developers.google.com/maps/documentation/javascript/infowindows
     viewModel.mapUnavailable(true);
     }
-    // mapConstructor testing
-    console.log(mapConstructor);
     // For Loop through the viewModel.locations: [...] array located in my app.js file
     // Run a test with console.log(self);
     for (var i = 0; i < viewModel.locations.length; i++) {
@@ -406,9 +401,6 @@ var mostRecentlyClickedMarker;
             new google.maps.Size(20,30));
         return markerImage;
     }
-    // marker icon test
-        console.log(self);
-        console.log(makeMarkerIcon);
         // The defaultIcon variable is taken from Udacity's google-maps-api course
         // https://www.udacity.com/course/google-maps-apis--ud864
         // Style the markers a bit. This will be our listing marker icon.
@@ -462,13 +454,11 @@ var mostRecentlyClickedMarker;
         marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(function() {
             marker.setAnimation(null);
-        }, 750);
+        }, 1400);
         // infowindow.setContent code found from the following stackoverflow resource:
         // http://stackoverflow.com/questions/7402667/google-maps-multiple-markers-1-infowindow-problem
         infowindow.setContent(marker.title);
         infowindow.open(map, marker);
-// infowindow test
-console.log(infowindow);
                 // URL of Wikipedia Articles for Content Reference
                 // http://stackoverflow.com/questions/8555320/is-there-a-clean-wikipedia-api-just-for-retrieve-content-summary
                 // Query: Getting Stack Overflow's intro in plain text:
@@ -477,11 +467,6 @@ console.log(infowindow);
                 // Clean wikipedia api content summary retrieve URL
                 // http://stackoverflow.com/questions/8555320/is-there-a-clean-wikipedia-api-just-for-retrieve-content-summary
                 var wikipediaURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=' + marker.wikipediaID;
-// Wikipedia API test
-console.log(wikipediaSource);
-console.log(wikipediaURL);
-// Marker test
-console.log(marker);
 // Wikipedia API instructions to show data
 // http://carolflyjs.github.io/how-to-guide/display-data.html
                 $.ajax({
@@ -496,8 +481,6 @@ console.log(marker);
 
                 //Set Content if failure of AJAX request
                 }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log(jqXHR);
-                    // change
                     infowindow.setContent('<div>' + 'No Service/ Connection Detected (Please try again later)' + '</div>');
                 });
             };
@@ -505,8 +488,6 @@ console.log(marker);
             // Event listener to  populateInfoWindow when clicked.
             this.addListener = google.maps.event.addListener(self.marker,'click', function() {
                 populateInfoWindow(this);
-                // eventListener test
-                console.log(this);
             });
         }
     }

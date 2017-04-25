@@ -25,7 +25,7 @@
   <body>
     <!-- begin navigation bar section -->
     <nav>
-        <div id="wrapper">
+        <div id="wrapper" data-bind="css: { 'toggled': visibleMenu }">
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
                 <div class="sidebar-nav">
@@ -38,7 +38,7 @@
                         <input id="search-bar-zoom" type="text" class="form-control" placeholder="Search..." data-bind="value: searchBox, valueUpdate: 'keyup'">
                     
                     <ul id="menu-toggled">
-                        <li class="closeMenu">Close Menu</li>
+                        <li data-bind="click: togglingMenu">Close Menu</li>
                     </ul>
                     <!-- div class list filters against the results list -->
                     <div class="resultsList" data-bind="foreach: search">
@@ -46,24 +46,25 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container">   
-                    <div class="row">
-                        <div class="col-lg-9">               
-                            <h1>Taipei Metro</h1>
-                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                        </div>
-                    </div>
-                </div>
-            <!-- /#page-content-wrapper -->
-            </div>
-        <!-- /#wrapper -->
-        </div>
-    </nav>
+        </nav>
 <!-- end navigation bar section -->
 <main>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container">   
+                <div class="row">
+                    <div class="col-lg-9">               
+                        <h1>Taipei Metro</h1>
+                        <div class="menu-toggled" data-bind="click: togglingMenu" class="btn btn-default">Toggle Menu</div>
+                    </div>
+                </div>
+            </div>
+        <!-- /#page-content-wrapper -->
+        </div>
+    <!-- /#wrapper -->
+    </div>
+
+
     <!-- begin Google Maps load -->
     <div id="map"></div>
       <div class="error-div-wrapper">

@@ -1,5 +1,6 @@
 // Main Class that serves as Blueprint for each Location Marker
 // Will show the desired information of each popup window for each markerInformation 
+// Constructing this class as a modal for location data and associated marker
 var markerInformation = function (title, lng, lat, wikipediaID, pageID, marker) {
 	var self = this;
 	this.title = title;
@@ -30,8 +31,9 @@ var viewModel = {
     //ko observable determining if error div should be shown
     mapUnavailable: ko.observable(false)
 };
-//Toggle Button / Side Menu Function when Clicked
-    viewModel.clickMe = function() {
+// togglingMenu/main page & side menu function
+// linked to visibleMenu css data-bind in HTML file
+    viewModel.togglingMenu = function() {
         var self = this;
         this.visibleMenu(!this.visibleMenu());
     };
@@ -52,15 +54,5 @@ var viewModel = {
             return matched;
         });
     }, viewModel);
-// Menu Toggle Script
-$("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});
-// Menu Close and Toggle Script
-$("#menu-toggled").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-});
 // default binding code for knockout.js
 ko.applyBindings(viewModel);

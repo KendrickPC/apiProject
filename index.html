@@ -7,18 +7,28 @@
     <meta name="description" content="Dazhi Coffee Fix">
     <meta name="author" content="everyDayKenneth.com">
     <title>Dazhi Coffee Fix</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <!-- Source Code Pro Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
   </head>
   <body>
-    
+
     <div id="map">
       <!-- Map goes here -->
     </div>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyCud51hlUS3bbRYRysHGf6ATd-VWnrcA5g&v=3&callback=initMap" onerror="mapError()">
-    </script>
+    <!-- Knockout JS Library Install -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+
+    <!-- JQuery CDN Install -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Google Maps API --> 
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyCud51hlUS3bbRYRysHGf6ATd-VWnrcA5g&v=3&callback=initMap" onerror="mapError()"></script>
     <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+
   </body>
 </html>

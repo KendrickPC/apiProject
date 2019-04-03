@@ -1,0 +1,47 @@
+/*custom style sheet for apiProject*/
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    bottom:0;
+    height: 83%;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.btn-default {
+	background-color: #bbb;
+	color: white;
+}
+
+h1 {
+	font-size: 18px;
+    text-align: center;
+}
+
+.row {
+	margin-left: 5px;
+}
+
+.menu-toggled {
+    border: solid;
+    text-align: center;
+}
+
+#menu-toggled {
+    /*margin-left: -15px;*/
+}
+
+.gm-style .gm-style-iw {
+    font-weight: 300;
+    font-size: 8px;
+ }
+
+.resultsList {
+    color: white;
+    padding-left: 10px;
+}
+
+.form-control {
+    width: 150px;
+}

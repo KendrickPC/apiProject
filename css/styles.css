@@ -27,13 +27,8 @@ html, body {
     margin: 20px 0px 20px 0px;
 }
 
-.glyphicon-filter, .glyphicon-remove {
+.fa, .fas {
     float: right;
-    margin-right: 5px;
-}
-
-.glyphicon-filter {
-    color: lightgray;
 }
 
 .filterLight {

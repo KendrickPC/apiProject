@@ -25,19 +25,148 @@ var marker = {};
 var infoWindow = {}
 
 window.initMap = function() {
-    var myLatLng = new google.maps.LatLng({lat: 25.042420, lng: 121.532770});
-    var zoom = viewM.isMobile() ? 12 : 13;
 
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: zoom,
-        center: myLatLng
-    });
+if (typeof window.google === 'object' && typeof window.google.maps === 'object') {
 
-    map.addListener( 'click', function(){
-        viewM.closeWindows();
-    });
-}
+    var styles = [{
+            "featureType": "administrative",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": "-100"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.province",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
+                },
+                {
+                    "lightness": 65
+                },
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
+                },
+                {
+                    "lightness": "50"
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": "-100"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "lightness": "30"
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "lightness": "40"
+                }
+            ]
+        },
+        {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
+                },
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "hue": "#ffff00"
+                },
+                {
+                    "lightness": -25
+                },
+                {
+                    "saturation": -97
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "lightness": -25
+                },
+                {
+                    "saturation": -100
+                }
+            ]
+        }
+    ]
 
+        var myLatLng = new google.maps.LatLng({lat: 25.042420, lng: 121.532770});
+        var zoom = viewM.isMobile() ? 12.5 : 13;
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: zoom,
+            center: myLatLng,
+            styles: styles
+        });
+
+        map.addListener( 'click', function(){
+            viewM.closeWindows();
+        });
+    }
+};
 // Google Maps and Knockout JS
 // https://stackoverflow.com/questions/12722925/google-maps-and-knockoutjs
 
@@ -54,7 +183,9 @@ var Restaurant = function( restObj, venue_data ) {
     var self = this;
     self.id = restObj.id;
     self.name = restObj.name;
+    self.address = restObj.address;
     self.description = restObj.notes;
+    // self.description = restObj.address;
     self.neighborhood = restObj.neighborhood;
     self.is_visible = false;
 
@@ -75,6 +206,7 @@ var Restaurant = function( restObj, venue_data ) {
 
     // Modifying template with restObj values.
     contentString = contentString.replace( '{{title}}', self.name )
+                                 .replace( '{{address}}', self.address )
                                  .replace( '{{img_url}}', self.img_url )
                                  .replace( '{{rest_url}}', self.rest_url)
                                  .replace( '{{url}}', self.url )
@@ -91,10 +223,7 @@ var Restaurant = function( restObj, venue_data ) {
 
 };
 
-// Foursquare API info:
-// client ID: WD2PWD3XXQGUBSXDTKXVFE2Y3CNB03FRPTXSORFUHGUVVGPO
-// client secret: YHLXV3YGUTIBM45TVR3AK1JZTTUURFZUKXMNKEOMXSFOQLXD
-// v: <YEAR/MO/DY>
+
 
 var ViewModel = function() {
     var self = this;

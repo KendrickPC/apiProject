@@ -2,6 +2,17 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*Notes/phone number to float right*/
+.content-row {
+    float: right;
+}
+
+/*Playing around with first-heading */
+.h3, h3 {
+    font-size: 30px;
 }
 
 .container-fluid {
@@ -66,8 +77,8 @@ li:hover {
 }
 
 .mainImg {
-    height: 90px;
-    width: 90px;
+    height: 70px;
+    width: 70px;
     border-radius: 4px;
 }
 
@@ -94,9 +105,10 @@ li:hover {
 }
 
 /* Primary mobile responsive CSS handled by the bootsnipp */
+/*width: 235px*/
 @media (max-width: 768px) {
     #main-title {
-        width: 195px;
+        width: 245px;
     }
 
     .attribution {
